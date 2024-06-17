@@ -1,9 +1,9 @@
 import Navbar from "./Navbar";
 
-const Header = () => {
+const Header = ({ title }) => {
     return (
         <header>
-            <Navbar />
+            <Navbar title={title} />
         </header>
     );
 };
