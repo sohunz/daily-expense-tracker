@@ -1,17 +1,17 @@
-import { Outlet } from "react-router-dom";
-import Footer from "./components/pages/Footer";
-import Header from "./components/pages/Header";
+import Header from "@/components/pages/Header";
+import MainPage from "./MainPage";
+import Footer from "@/components/pages/Footer";
 
-const App = () => {
+const Layout = () => {
     return (
         <div className="flex flex-col justify-between h-screen border mx-auto rounded-xl">
             <Header />
             <div className="flex-grow">
-                <Outlet />
+                <MainPage />
             </div>
             <Footer />
         </div>
     );
 };
 
-export default App;
+export default Layout;
