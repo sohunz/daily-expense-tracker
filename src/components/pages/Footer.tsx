@@ -16,40 +16,43 @@ const Footer = () => {
                 <PieChart />
             </Link>
             <Link to="/home" className=" overflow-hidden">
-                <Dialog>
-                    <DialogTrigger asChild>
-                        <div className="border p-4 rounded-full bg-violet-500 text-white cursor-pointer">
-                            <Plus />
-                        </div>
-                    </DialogTrigger>
-                    <DialogContent className="sm:max-w-[425px]">
-                        <div className="flex items-center flex-col">
-                            <p className="text-4xl font-semibold pb-3">0</p>
-                            <Drawer>
-                                <DrawerTrigger asChild>
-                                    <Button variant="outline">
-                                        Select tage
-                                    </Button>
-                                </DrawerTrigger>
-                                <DrawerContent>
-                                    <div>
-                                        <ul>
-                                            <li>Home</li>
-                                            <li>School</li>
-                                            <li>Game</li>
-                                        </ul>
-                                    </div>
-                                </DrawerContent>
-                            </Drawer>
-                        </div>
-                        <DialogFooter>
-                            <div className="w-full flex justify-between">
-                                <Button>Cancel</Button>
-                                <Button type="submit">Save</Button>
+                <div>
+                    <Dialog>
+                        <DialogTrigger asChild>
+                            <div className="border p-4 rounded-full bg-violet-500 text-white cursor-pointer">
+                                <Plus />
                             </div>
-                        </DialogFooter>
-                    </DialogContent>
-                </Dialog>
+                        </DialogTrigger>
+                        <DialogContent className="sm:max-w-[425px]">
+                            <div className="flex items-center flex-col">
+                                <p className="text-4xl font-semibold pb-3">0</p>
+                                <Drawer>
+                                    <DrawerTrigger asChild>
+                                        <Button variant="outline">
+                                            Select tage
+                                        </Button>
+                                    </DrawerTrigger>
+
+                                    <DrawerContent className="max-w-md h-[50vh]">
+                                        <div>
+                                            <ul>
+                                                <li>Home</li>
+                                                <li>School</li>
+                                                <li>Game</li>
+                                            </ul>
+                                        </div>
+                                    </DrawerContent>
+                                </Drawer>
+                            </div>
+                            <DialogFooter>
+                                <div className="w-full flex justify-between">
+                                    <Button>Cancel</Button>
+                                    <Button type="submit">Save</Button>
+                                </div>
+                            </DialogFooter>
+                        </DialogContent>
+                    </Dialog>
+                </div>
             </Link>
             <Link to="/notification">
                 <Bell strokeWidth={2.5} />

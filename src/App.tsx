@@ -1,11 +1,12 @@
 import { Outlet, useLocation } from "react-router-dom";
 import Footer from "./components/pages/Footer";
 import Header from "./components/pages/Header";
+import { ThemeProvider } from "@/components/theme-provider";
 
 const App = () => {
     const location = useLocation();
 
-    const getTitle = (path) => {
+    const getTitle = (path: string) => {
         switch (path) {
             case "/home":
                 return "Home";
@@ -19,13 +20,15 @@ const App = () => {
     };
     const title = getTitle(location.pathname);
     return (
-        <div className="flex flex-col justify-between h-screen border mx-auto rounded-xl">
-            <Header title={title} />
-            <div className="flex-grow">
-                <Outlet />
+        <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
+            <div className="flex flex-col justify-between max-w-md h-screen border mx-auto rounded-xl">
+                <Header title={title} />
+                <div className="flex-grow">
+                    <Outlet />
+                </div>
+                <Footer />
             </div>
-            <Footer />
-        </div>
+        </ThemeProvider>
     );
 };
 
