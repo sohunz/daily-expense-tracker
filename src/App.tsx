@@ -9,11 +9,11 @@ const App = () => {
     const getTitle = (path: string) => {
         switch (path) {
             case "/home":
-                return "Home";
+                return "EXPENSE";
             case "/analytic":
-                return "Analytic";
+                return "ANALYTIC";
             case "/notification":
-                return "Notification";
+                return "NOTIFICATION";
             default:
                 return "Default Title";
         }

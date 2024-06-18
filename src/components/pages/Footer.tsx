@@ -11,9 +11,9 @@ import { Drawer, DrawerContent, DrawerTrigger } from "@/components/ui/drawer";
 
 const Footer = () => {
     return (
-        <footer className="w-full overflow-hidden flex items-center justify-between border-t px-5 py-2">
+        <footer className="fixed w-full max-w-md bottom-0 bg-[#030712] overflow-hidden flex items-center justify-between border-t px-5 py-2 border border-r">
             <Link to="/analytic">
-                <PieChart />
+                <PieChart strokeWidth={1} />
             </Link>
             <Link to="/home" className=" overflow-hidden">
                 <div>
@@ -24,6 +24,7 @@ const Footer = () => {
                             </div>
                         </DialogTrigger>
                         <DialogContent className="sm:max-w-[425px]">
+                            {/* modal */}
                             <div className="flex items-center flex-col">
                                 <p className="text-4xl font-semibold pb-3">0</p>
                                 <Drawer>
@@ -55,7 +56,7 @@ const Footer = () => {
                 </div>
             </Link>
             <Link to="/notification">
-                <Bell strokeWidth={2.5} />
+                <Bell strokeWidth={1} />
             </Link>
         </footer>
     );
