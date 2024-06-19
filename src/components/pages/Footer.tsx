@@ -8,14 +8,16 @@ import {
     DialogTrigger,
 } from "@/components/ui/dialog";
 import { Drawer, DrawerContent, DrawerTrigger } from "@/components/ui/drawer";
+import { Input } from "../ui/input";
 
+// bg-[#030712]
 const Footer = () => {
     return (
-        <footer className="fixed w-full max-w-md bottom-0 bg-[#030712] overflow-hidden flex items-center justify-between border-t px-5 py-2 border border-r">
+        <footer className="fixed w-full max-w-md bottom-0  overflow-hidden flex items-center justify-between border-t px-5 py-2 z-50">
             <Link to="/analytic">
                 <PieChart strokeWidth={1} />
             </Link>
-            <Link to="/home" className=" overflow-hidden">
+            <Link to="/home">
                 <div>
                     <Dialog>
                         <DialogTrigger asChild>
@@ -26,20 +28,67 @@ const Footer = () => {
                         <DialogContent className="sm:max-w-[425px]">
                             {/* modal */}
                             <div className="flex items-center flex-col">
-                                <p className="text-4xl font-semibold pb-3">0</p>
+                                <Input
+                                    defaultValue={0}
+                                    className="w-[180px] text-center border-b pb-2 outline-none text-5xl mb-5 font-semibold text-gray-600"
+                                />
                                 <Drawer>
                                     <DrawerTrigger asChild>
-                                        <Button variant="outline">
-                                            Select tage
+                                        <Button variant="outline-none">
+                                            Choose Icons
                                         </Button>
                                     </DrawerTrigger>
 
                                     <DrawerContent className="max-w-md h-[50vh]">
-                                        <div>
-                                            <ul>
-                                                <li>Home</li>
-                                                <li>School</li>
-                                                <li>Game</li>
+                                        <div className="mt-14">
+                                            <ul className="grid grid-cols-4">
+                                                <li className="flex items-center flex-col text-[13px] mb-10 gap-1">
+                                                    <div className="border p-3 rounded-full  text-white cursor-pointer">
+                                                        <Plus size={20} />
+                                                    </div>
+                                                </li>
+                                                <li className="flex items-center flex-col text-[13px] gap-1">
+                                                    <span className="text-3xl">
+                                                        🏠
+                                                    </span>
+                                                    <p>Home</p>
+                                                </li>
+                                                <li className="flex items-center flex-col text-[13px] gap-1">
+                                                    <span className="text-3xl">
+                                                        🚗
+                                                    </span>
+                                                    <p>Car</p>
+                                                </li>
+                                                <li className="flex items-center flex-col text-[13px] gap-1">
+                                                    <span className="text-3xl">
+                                                        📲
+                                                    </span>
+                                                    <p>Phone</p>
+                                                </li>
+                                                <li className="flex items-center flex-col text-[13px] gap-1">
+                                                    <span className="text-3xl">
+                                                        🏢
+                                                    </span>
+                                                    <p>Work</p>
+                                                </li>
+                                                <li className="flex items-center flex-col text-[13px] gap-1">
+                                                    <span className="text-3xl">
+                                                        💻
+                                                    </span>
+                                                    <p>Computer</p>
+                                                </li>
+                                                <li className="flex items-center flex-col text-[13px] gap-1">
+                                                    <span className="text-3xl">
+                                                        📗
+                                                    </span>
+                                                    <p>Book</p>
+                                                </li>
+                                                <li className="flex items-center flex-col text-[13px] gap-1">
+                                                    <span className="text-3xl">
+                                                        💊
+                                                    </span>
+                                                    <p>Madichine</p>
+                                                </li>
                                             </ul>
                                         </div>
                                     </DrawerContent>

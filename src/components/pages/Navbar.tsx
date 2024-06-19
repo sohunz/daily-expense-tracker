@@ -38,7 +38,7 @@ const Navbar = ({ title }) => {
                     </DropdownMenuItem>
                 </DropdownMenuContent>
             </DropdownMenu>
-            <p>{title}</p>
+            <p className=" font-semibold">{title}</p>
             <LogOut strokeWidth={1} size={20} />
         </nav>
     );
