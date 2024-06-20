@@ -21,7 +21,7 @@ const App = () => {
     const title = getTitle(location.pathname);
     return (
         <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
-            <div className="flex flex-col justify-between max-w-md h-screen  mx-auto rounded-xl border ">
+            <div className="flex flex-col justify-between max-w-md h-screen  mx-auto rounded-xl border">
                 <Header title={title} />
                 <div className="flex-grow">
                     <Outlet />

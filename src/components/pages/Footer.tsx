@@ -13,7 +13,7 @@ import { Input } from "../ui/input";
 // bg-[#030712]
 const Footer = () => {
     return (
-        <footer className="fixed w-full max-w-md bottom-0  overflow-hidden flex items-center justify-between border-t px-5 py-2 z-50">
+        <footer className="fixed w-full max-w-md bottom-0  overflow-hidden flex items-center justify-between border-t px-5 py-2 z-50 bg-[#030712]">
             <Link to="/analytic">
                 <PieChart strokeWidth={1} />
             </Link>

@@ -75,7 +75,7 @@ const Analytic = () => {
             <div className="w-full space-y-3 mt-10">
                 <div className="w-full flex justify-between items-center bg-gray-900 p-3 rounded-md">
                     <div className="flex items-center gap-5">
-                        <div className="border rounded-full p-2 bg-violet-500">
+                        <div className=" rounded-full p-2 bg-violet-500">
                             <TrendingUp strokeWidth={1.25} />
                         </div>
                         <p className="flex flex-col gap-1">
@@ -89,7 +89,7 @@ const Analytic = () => {
                 </div>
                 <div className="w-full flex justify-between items-center bg-gray-900 p-3 rounded-md">
                     <div className="flex items-center gap-5">
-                        <div className="border rounded-full p-2 bg-violet-500">
+                        <div className=" rounded-full p-2 bg-violet-500">
                             <Tag strokeWidth={1.25} size={20} />
                         </div>
                         <p className="flex flex-col gap-1">
