@@ -19,7 +19,7 @@ const MainPage = () => {
                             </span>
                         </p>
                     </div>
-                    <p className="text-red-500">-250$</p>
+                    <p className="text-red-500">-750$</p>
                 </div>
                 <div className="w-full flex justify-between items-center">
                     <div className="flex items-center gap-3">
