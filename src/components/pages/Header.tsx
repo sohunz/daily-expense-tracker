@@ -1,6 +1,10 @@
 import Navbar from "./Navbar";
 
-const Header = ({ title }) => {
+interface PropType {
+    title: string;
+}
+
+const Header = ({ title }: PropType) => {
     return (
         <header>
             <Navbar title={title} />

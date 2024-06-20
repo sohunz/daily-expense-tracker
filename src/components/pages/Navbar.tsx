@@ -8,13 +8,17 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { useTheme } from "@/components/theme-provider";
 
-const Navbar = ({ title }) => {
+interface PropsType {
+    title: string;
+}
+
+const Navbar = ({ title }: PropsType) => {
     const { setTheme } = useTheme();
     return (
         <nav className="flex items-center justify-between p-5">
             <DropdownMenu>
                 <DropdownMenuTrigger asChild>
-                    <Button variant="outline-none" size="icon">
+                    <Button variant="link" size="icon">
                         <Sun
                             className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0"
                             strokeWidth={1.5}

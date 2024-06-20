@@ -20,7 +20,7 @@ ChartJS.register(
     Legend
 );
 
-export const options = {
+export const options: any = {
     responsive: true,
     plugins: {
         legend: {
@@ -43,8 +43,6 @@ const labels = [];
 for (let day = 1; day <= 15; day++) {
     labels.push(day);
 }
-
-// const labels = ["January", "February", "March", "April", "May", "June", "July"];
 
 export const data = {
     labels,

@@ -34,7 +34,7 @@ const Footer = () => {
                                 />
                                 <Drawer>
                                     <DrawerTrigger asChild>
-                                        <Button variant="outline-none">
+                                        <Button variant="link">
                                             Choose Icons
                                         </Button>
                                     </DrawerTrigger>
