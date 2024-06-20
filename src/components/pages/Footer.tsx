@@ -17,7 +17,7 @@ const Footer = () => {
             <Link to="/analytic">
                 <PieChart strokeWidth={1} />
             </Link>
-            <Link to="/home">
+            <Link to="/">
                 <div>
                     <Dialog>
                         <DialogTrigger asChild>
