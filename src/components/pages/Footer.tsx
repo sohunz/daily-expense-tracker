@@ -1,4 +1,4 @@
-import { PieChart, Plus, Bell } from "lucide-react";
+import { PieChart, Plus, Bell, RotateCcw } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import {
@@ -66,16 +66,30 @@ const Footer = () => {
                                 <Input
                                     type="number"
                                     placeholder="0"
-                                    className="w-[180px] text-center border-b pb-2 outline-none text-5xl mb-5 font-semibold text-gray-600 no-spinner"
+                                    className="w-[180px] text-center border-b pb-2 outline-none text-5xl mb-7 font-semibold text-gray-600 no-spinner"
                                     onChange={(e) =>
                                         setValue(Number(e.target.value))
                                     }
                                 />
                                 <Drawer>
                                     <DrawerTrigger asChild>
-                                        <Button variant="link">
-                                            Choose Icons
-                                        </Button>
+                                        <button>
+                                            {getIcon === "" ? (
+                                                "Choose Icons"
+                                            ) : (
+                                                <button className="flex flex-row items-center justify-center gap-5 no-underline">
+                                                    <span className="text-2xl">
+                                                        {getIcon}
+                                                    </span>
+                                                    <p className="text-lg">
+                                                        {getTitle}
+                                                    </p>
+                                                    <RotateCcw
+                                                        strokeWidth={1.5}
+                                                    />
+                                                </button>
+                                            )}
+                                        </button>
                                     </DrawerTrigger>
 
                                     <DrawerContent className="max-w-md h-[50vh]">
@@ -207,13 +221,17 @@ const Footer = () => {
                                     </DrawerClose>
                                     <DrawerClose asChild>
                                         <Button
-                                            onClick={() =>
+                                            onClick={() => {
                                                 addExpense(
                                                     getValue,
                                                     getIcon,
                                                     getTitle
-                                                )
-                                            }
+                                                );
+
+                                                setIcon("");
+                                                setTitle("");
+                                                setValue(0);
+                                            }}
                                         >
                                             Save
                                         </Button>
