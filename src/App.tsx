@@ -8,7 +8,7 @@ const App = () => {
 
     const getTitle = (path: string) => {
         switch (path) {
-            case "/home":
+            case "/":
                 return "EXPENSE";
             case "/analytic":
                 return "ANALYTIC";
