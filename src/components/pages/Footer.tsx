@@ -47,6 +47,21 @@ const Footer = () => {
 
     const { addExpense } = useAddExpense((state) => state);
 
+    const handleAdd = () => {
+        if (!getValue && !getIcon) {
+            alert("Please input value and Select tage!");
+        } else if (!getValue) {
+            alert("Please input value");
+        } else if (!getIcon) {
+            alert("Please select tag!");
+        } else {
+            addExpense(getValue, getIcon, getTitle);
+            setIcon("");
+            setTitle("");
+            setValue(0);
+        }
+    };
+
     return (
         <footer className="fixed w-full max-w-md bottom-0 overflow-hidden flex items-center justify-between border-t px-5 py-2 z-50">
             <Link to="/analytic">
@@ -220,19 +235,7 @@ const Footer = () => {
                                         </Button>
                                     </DrawerClose>
                                     <DrawerClose asChild>
-                                        <Button
-                                            onClick={() => {
-                                                addExpense(
-                                                    getValue,
-                                                    getIcon,
-                                                    getTitle
-                                                );
-
-                                                setIcon("");
-                                                setTitle("");
-                                                setValue(0);
-                                            }}
-                                        >
+                                        <Button onClick={handleAdd}>
                                             Save
                                         </Button>
                                     </DrawerClose>
