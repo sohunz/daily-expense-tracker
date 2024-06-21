@@ -8,6 +8,17 @@
     font-weight: 600;
 }
 
+.no-spinner::-webkit-outer-spin-button,
+.no-spinner::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.no-spinner {
+    -moz-appearance: textfield;
+}
+
+
 @layer base {
     :root {
         --background: 0 0% 100%;

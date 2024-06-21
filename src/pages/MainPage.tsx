@@ -12,7 +12,6 @@ const MainPage = () => {
                     $ -200
                 </span>
             </p>
-
             <div className="w-full p-5 space-y-5">
                 {expense.map((ex) => (
                     <ListExpense ex={ex} key={ex.id} />

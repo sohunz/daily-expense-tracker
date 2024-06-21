@@ -7,5 +7,5 @@ export interface expenseType {
 
 export interface ExpenseType {
     expense: expenseType[];
-    addExpense: () => void;
+    addExpense: (value: number, icon: string, title: string) => void;
 }
