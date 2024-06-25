@@ -1,7 +1,11 @@
 import MainPage from "./MainPage";
 
 const HomePage = () => {
-    return <MainPage />;
+    return (
+        <div>
+            <MainPage />
+        </div>
+    );
 };
 
 export default HomePage;
