@@ -15,6 +15,7 @@ import {
 import { Input } from "../../ui/input";
 import { useEffect, useState } from "react";
 import { useAddExpense } from "@/store/store";
+import { category } from "@/data/category";
 
 const CreateExpense = () => {
     const [getValue, setValue] = useState<number>(0);
@@ -28,16 +29,14 @@ const CreateExpense = () => {
             setTitle("Home");
         } else if (getIcon === "🚗") {
             setTitle("Car");
-        } else if (getIcon === "📲") {
+        } else if (getIcon === "📱") {
             setTitle("Phone");
-        } else if (getIcon === "🏢") {
-            setTitle("Work");
-        } else if (getIcon === "💻") {
+        } else if (getIcon === "🏫") {
+            setTitle("School");
+        } else if (getIcon === "🖥️") {
             setTitle("Computer");
-        } else if (getIcon === "📗") {
-            setTitle("Book");
-        } else if (getIcon === "💊") {
-            setTitle("Pill");
+        } else if (getIcon === "🍔") {
+            setTitle("Food");
         } else {
             setTitle("");
         }
@@ -104,97 +103,26 @@ const CreateExpense = () => {
                                                 <Plus strokeWidth={0.75} />
                                             </div>
                                         </li>
-                                        <li
-                                            className="flex items-center flex-col text-[13px] gap-1"
-                                            onClick={() => setIcon("🏠")}
-                                        >
-                                            <DrawerClose asChild>
-                                                <button className="flex flex-col items-center justify-center gap-1">
-                                                    <span className="text-3xl">
-                                                        🏠
-                                                    </span>
-                                                    <p>Home</p>
-                                                </button>
-                                            </DrawerClose>
-                                        </li>
-                                        <li
-                                            className="flex items-center flex-col text-[13px] gap-1"
-                                            onClick={() => setIcon("🚗")}
-                                        >
-                                            <DrawerClose asChild>
-                                                <button className="flex flex-col items-center justify-center gap-1">
-                                                    <span className="text-3xl">
-                                                        🚗
-                                                    </span>
-                                                    <p>Car</p>
-                                                </button>
-                                            </DrawerClose>
-                                        </li>
-                                        <li
-                                            className="flex items-center flex-col text-[13px] gap-1"
-                                            onClick={() => setIcon("📲")}
-                                        >
-                                            <DrawerClose asChild>
-                                                <button className="flex flex-col items-center justify-center gap-1">
-                                                    <span className="text-3xl">
-                                                        📲
-                                                    </span>
-                                                    <p>Phone</p>
-                                                </button>
-                                            </DrawerClose>
-                                        </li>
-                                        <li
-                                            className="flex items-center flex-col text-[13px] gap-1"
-                                            onClick={() => setIcon("🏢")}
-                                        >
-                                            <DrawerClose asChild>
-                                                <button className="flex flex-col items-center justify-center gap-1">
-                                                    <span className="text-3xl">
-                                                        🏢
-                                                    </span>
-                                                    <p>Work</p>
-                                                </button>
-                                            </DrawerClose>
-                                        </li>
-                                        <li
-                                            className="flex items-center flex-col text-[13px] gap-1"
-                                            onClick={() => setIcon("💻")}
-                                        >
-                                            <DrawerClose asChild>
-                                                <button className="flex flex-col items-center justify-center gap-1">
-                                                    <span className="text-3xl">
-                                                        💻
-                                                    </span>
-                                                    <p>Computer</p>
-                                                </button>
-                                            </DrawerClose>
-                                        </li>
-                                        <li
-                                            className="flex items-center flex-col text-[13px] gap-1"
-                                            onClick={() => setIcon("📗")}
-                                        >
-                                            <DrawerClose asChild>
-                                                <button className="flex flex-col items-center justify-center gap-1">
-                                                    <span className="text-3xl">
-                                                        📗
-                                                    </span>
-                                                    <p>Book</p>
-                                                </button>
-                                            </DrawerClose>
-                                        </li>
-                                        <li
-                                            className="flex items-center flex-col text-[13px] gap-1"
-                                            onClick={() => setIcon("💊")}
-                                        >
-                                            <DrawerClose asChild>
-                                                <button className="flex flex-col items-center justify-center gap-1">
-                                                    <span className="text-3xl">
-                                                        💊
-                                                    </span>
-                                                    <p>Medicine</p>
-                                                </button>
-                                            </DrawerClose>
-                                        </li>
+                                        {category.map((i) => {
+                                            return (
+                                                <li
+                                                    className="flex items-center flex-col text-[13px] gap-1"
+                                                    onClick={() =>
+                                                        setIcon(i.icon)
+                                                    }
+                                                    key={i.id}
+                                                >
+                                                    <DrawerClose asChild>
+                                                        <button className="flex flex-col items-center justify-center gap-1">
+                                                            <span className="text-3xl">
+                                                                {i.icon}
+                                                            </span>
+                                                            <p>{i.title}</p>
+                                                        </button>
+                                                    </DrawerClose>
+                                                </li>
+                                            );
+                                        })}
                                     </ul>
                                 </div>
                             </DrawerContent>
