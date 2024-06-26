@@ -15,7 +15,9 @@ import {
 import { Input } from "../../ui/input";
 import { useEffect, useState } from "react";
 import { useAddExpense } from "@/store/store";
-import { category } from "@/data/category";
+// import { category } from "@/data/category";
+import CreateExpenseModal from "./CreateExpenseModal";
+import { useAddCategory } from "@/store/category";
 
 const CreateExpense = () => {
     const [getValue, setValue] = useState<number>(0);
@@ -44,6 +46,7 @@ const CreateExpense = () => {
     }, [getIcon]);
 
     const { addExpense } = useAddExpense((state) => state);
+    const { category } = useAddCategory((state) => state);
 
     const handleAdd = () => {
         if (!getValue && !getIcon) {
@@ -99,8 +102,8 @@ const CreateExpense = () => {
                                 <div className="mt-14">
                                     <ul className="grid grid-cols-4">
                                         <li className="flex items-center flex-col text-[13px] mb-10 gap-1">
-                                            <div className="border p-3 rounded-full cursor-pointer">
-                                                <Plus strokeWidth={0.75} />
+                                            <div>
+                                                <CreateExpenseModal />
                                             </div>
                                         </li>
                                         {category.map((i) => {
