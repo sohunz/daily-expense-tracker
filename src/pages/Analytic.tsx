@@ -1,64 +1,7 @@
-import {
-    Chart as ChartJS,
-    CategoryScale,
-    LinearScale,
-    BarElement,
-    Title,
-    Tooltip,
-    Legend,
-} from "chart.js";
-import { Bar } from "react-chartjs-2";
-import { faker } from "@faker-js/faker";
 import { TrendingUp, Tag } from "lucide-react";
 import { useAddExpense } from "@/store/store.ts";
 import { convertDate } from "../utils/formatDate.ts";
-
-ChartJS.register(
-    CategoryScale,
-    LinearScale,
-    BarElement,
-    Title,
-    Tooltip,
-    Legend
-);
-
-export const options: any = {
-    responsive: true,
-    plugins: {
-        legend: {
-            position: "bottom" as const,
-        },
-    },
-    scales: {
-        y: {
-            position: "right",
-            ticks: {
-                font: {
-                    size: 10,
-                },
-            },
-        },
-    },
-};
-
-const labels = [];
-for (let day = 1; day <= 15; day++) {
-    labels.push(day);
-}
-
-export const data = {
-    labels,
-    datasets: [
-        {
-            label: "Spent each days",
-            data: labels.map(() =>
-                faker.datatype.number({ min: 0, max: 1000 })
-            ),
-            backgroundColor: "#8B5CF6",
-            barThickness: 10,
-        },
-    ],
-};
+import ChartData from "@/chart/ChartData.tsx";
 
 const Analytic = () => {
     const { expense } = useAddExpense((state) => state);
@@ -71,11 +14,8 @@ const Analytic = () => {
 
     // get the highest expense
     const highestExpense = Math.max(...expense.map((obj) => obj.value));
-    const maxScoreObject = expense.find((obj) => obj.value === highestExpense);
-    console.log(maxScoreObject);
 
     const date = new Date();
-
     return (
         <div className=" px-5 mt-10">
             <p className="flex flex-col gap-2 mb-5">
@@ -86,7 +26,7 @@ const Analytic = () => {
                     Total spent this month
                 </span>
             </p>
-            <Bar options={options} data={data} />
+            <ChartData />
             <div className="w-full space-y-3 mt-10">
                 <div className="w-full flex justify-between items-center bg-gray-900 p-3 rounded-md">
                     <div className="flex items-center gap-5">
