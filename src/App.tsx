@@ -2,6 +2,7 @@ import { Outlet, useLocation } from "react-router-dom";
 import Footer from "./components/pages/Footer";
 import Header from "./components/pages/Header";
 import { ThemeProvider } from "@/components/theme-provider";
+import { Toaster } from "@/components/ui/toaster";
 
 const App = () => {
     const location = useLocation();
@@ -27,6 +28,7 @@ const App = () => {
                     <Outlet />
                 </div>
                 <Footer />
+                <Toaster />
             </div>
         </ThemeProvider>
     );

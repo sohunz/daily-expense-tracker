@@ -10,6 +10,7 @@ import { DrawerClose } from "@/components/ui/drawer";
 import { Input } from "../../ui/input";
 import { useState } from "react";
 import { useAddCategory } from "@/store/category";
+import useCustomToast from "@/hooks/useCustomToast";
 
 const CreateExpenseModal = () => {
     const [getIcon, setIcon] = useState<string>("");
@@ -23,19 +24,24 @@ const CreateExpenseModal = () => {
         icon: getIcon,
     };
 
+    const inputTitleAndIcon = useCustomToast("Please input Title and Icon!");
+    const inputTitle = useCustomToast("Please input Title!");
+    const inputIcon = useCustomToast("Please input Icon!");
+    const success = useCustomToast("Category has been created!");
+
     const handleAdd = () => {
         if (!getTitle && !getIcon) {
-            alert("Please input title and input icon");
+            inputTitleAndIcon();
             setOpen(false);
             setTitle("");
             setIcon("");
         } else if (!getTitle) {
-            alert("Please input title");
+            inputTitle();
             setOpen(false);
             setTitle("");
             setIcon("");
         } else if (!getIcon) {
-            alert("Please input icon");
+            inputIcon();
             setOpen(false);
             setTitle("");
             setIcon("");
@@ -44,6 +50,7 @@ const CreateExpenseModal = () => {
             setOpen(false);
             setTitle("");
             setIcon("");
+            success();
         }
     };
 
@@ -71,13 +78,13 @@ const CreateExpenseModal = () => {
                         <Input
                             type="text"
                             placeholder="Title"
-                            className="w-[180px] text-center border-b pb-2 outline-none text-5xl mb-7 font-semibold text-gray-600 no-spinner"
+                            className="w-[180px] text-center border-b pb-2 outline-none text-3xl mb-10 font-semibold text-gray-600 no-spinner"
                             onChange={(e) => setTitle(e.target.value)}
                         />
                         <Input
                             type="text"
                             placeholder="Icon"
-                            className="w-[180px] text-center border-b pb-2 outline-none text-5xl mb-7 font-semibold text-gray-600 no-spinner"
+                            className="w-[180px] text-center border-b pb-2 outline-none text-3xl mb-7 font-semibold text-gray-600 no-spinner"
                             onChange={(e) => setIcon(e.target.value)}
                         />
                     </div>

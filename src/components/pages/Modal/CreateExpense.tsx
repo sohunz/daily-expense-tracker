@@ -15,9 +15,9 @@ import {
 import { Input } from "../../ui/input";
 import { useEffect, useState } from "react";
 import { useAddExpense } from "@/store/store";
-// import { category } from "@/data/category";
 import CreateExpenseModal from "./CreateExpenseModal";
 import { useAddCategory } from "@/store/category";
+import useCustomToast from "@/hooks/useCustomToast";
 
 const CreateExpense = () => {
     const [getValue, setValue] = useState<number>(0);
@@ -48,18 +48,27 @@ const CreateExpense = () => {
     const { addExpense } = useAddExpense((state) => state);
     const { category } = useAddCategory((state) => state);
 
+    // Toast
+    const inputValueAndIcon = useCustomToast(
+        "Please input amount of Expense and select Icon!"
+    );
+    const inputValue = useCustomToast("Please input amount of Expense!");
+    const inputIcon = useCustomToast("Please select Icon!");
+    const success = useCustomToast("Expense has been created!");
+
     const handleAdd = () => {
         if (!getValue && !getIcon) {
-            alert("Please input value and Select tage!");
+            inputValueAndIcon();
         } else if (!getValue) {
-            alert("Please input value");
+            inputValue();
         } else if (!getIcon) {
-            alert("Please select tag!");
+            inputIcon();
         } else {
             addExpense(getValue, getIcon, getTitle);
             setIcon("");
             setTitle("");
             setValue(0);
+            success();
         }
     };
     return (
