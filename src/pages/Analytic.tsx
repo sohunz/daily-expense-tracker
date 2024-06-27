@@ -28,28 +28,28 @@ const Analytic = () => {
             </p>
             <ChartData />
             <div className="w-full space-y-3 mt-10">
-                <div className="w-full flex justify-between items-center bg-gray-900 p-3 rounded-md">
+                <div className="w-full flex justify-between items-center bg-secondary p-3 rounded-md">
                     <div className="flex items-center gap-5">
-                        <div className=" rounded-full p-2 bg-violet-500">
+                        <div className=" rounded-full p-2 bg-violet-500 text-white">
                             <TrendingUp strokeWidth={1.25} />
                         </div>
                         <p className="flex flex-col gap-1">
                             Highest Spent
-                            <span className="text-[13px] text-gray-500">
+                            <span className="text-[13px] ">
                                 {convertDate(date)}
                             </span>
                         </p>
                     </div>
                     <p className="text-red-500">-{highestExpense}$</p>
                 </div>
-                <div className="w-full flex justify-between items-center bg-gray-900 p-3 rounded-md">
+                <div className="w-full flex justify-between items-center bg-secondary p-3 rounded-md">
                     <div className="flex items-center gap-5">
-                        <div className=" rounded-full p-2 bg-violet-500">
+                        <div className=" rounded-full p-2 bg-violet-500 text-white">
                             <Tag strokeWidth={1.25} size={20} />
                         </div>
-                        <p className="flex flex-col gap-1">
+                        <p className="flex flex-col gap-1 ">
                             Most Entry
-                            <span className="text-[13px] text-gray-500">
+                            <span className="text-[13px] ">
                                 {convertDate(date)}
                             </span>
                         </p>
