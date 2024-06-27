@@ -4,7 +4,7 @@ import CreateExpense from "./Modal/CreateExpense";
 
 const Footer = () => {
     return (
-        <footer className="fixed w-full max-w-md bottom-0 overflow-hidden flex items-center justify-between border-t px-5 py-2 z-50">
+        <footer className="fixed w-full max-w-lg bottom-0 overflow-hidden flex items-center justify-between border-t px-5 py-2 z-50">
             <Link to="/analytic">
                 <PieChart strokeWidth={1} />
             </Link>

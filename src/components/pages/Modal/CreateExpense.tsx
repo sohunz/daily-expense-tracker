@@ -98,7 +98,7 @@ const CreateExpense = () => {
                                 </button>
                             </DrawerTrigger>
 
-                            <DrawerContent className="max-w-md h-[50vh]">
+                            <DrawerContent className="max-w-lg h-[50vh]">
                                 <div className="mt-14">
                                     <ul className="grid grid-cols-4">
                                         <li className="flex items-center flex-col text-[13px] mb-10 gap-1">

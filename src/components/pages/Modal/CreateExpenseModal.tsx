@@ -24,15 +24,29 @@ const CreateExpenseModal = () => {
 
     const handleAdd = () => {
         addCategory(addData.title, addData.icon);
+        setOpen(false);
     };
+
+    const [isOpen, setOpen] = useState(false);
+
     return (
         <div>
             <Dialog>
                 <DialogTrigger asChild>
-                    <div className="border p-3 rounded-full cursor-pointer">
+                    <div
+                        className="border p-3 rounded-full cursor-pointer"
+                        onClick={() => setOpen(!isOpen)}
+                    >
                         <Plus strokeWidth={0.75} />
                     </div>
                 </DialogTrigger>
+                <div
+                    className={
+                        isOpen
+                            ? " absolute w-full h-screen inset-0 bg-black bg-opacity-80"
+                            : ""
+                    }
+                ></div>
                 <DialogContent className="max-w-sm">
                     {/* modal */}
                     <div className="flex items-center flex-col">
