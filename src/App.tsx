@@ -13,7 +13,7 @@ const App = () => {
             case "/analytic":
                 return "ANALYTIC";
             case "/notification":
-                return "NOTIFICATION";
+                return "CHANGE LOGS";
             default:
                 return "Default Title";
         }
