@@ -3,6 +3,7 @@ export interface expenseType {
     title: string;
     icon: string;
     value: number;
+    created: Date;
 }
 
 export interface ExpenseType {

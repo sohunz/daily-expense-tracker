@@ -1,4 +1,5 @@
 import { expenseType } from "@/types/types";
+import { formatTime } from "@/utils/formatTime";
 
 interface PropsType {
     ex: expenseType;
@@ -11,7 +12,9 @@ const ListExpense = ({ ex }: PropsType) => {
                 <p className="text-3xl">{ex.icon}</p>
                 <p className="flex flex-col gap-1">
                     {ex.title}
-                    <span className="text-[13px] text-gray-500">10:15 AM</span>
+                    <span className="text-[13px] text-gray-500">
+                        {formatTime(ex.created)}
+                    </span>
                 </p>
             </div>
             <p className="text-red-500">-{ex.value}$</p>
