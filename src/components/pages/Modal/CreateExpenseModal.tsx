@@ -14,6 +14,7 @@ import { useAddCategory } from "@/store/category";
 const CreateExpenseModal = () => {
     const [getIcon, setIcon] = useState<string>("");
     const [getTitle, setTitle] = useState<string>("");
+    const [isOpen, setOpen] = useState(false);
 
     const { addCategory } = useAddCategory((state) => state);
 
@@ -23,11 +24,28 @@ const CreateExpenseModal = () => {
     };
 
     const handleAdd = () => {
-        addCategory(addData.title, addData.icon);
-        setOpen(false);
+        if (!getTitle && !getIcon) {
+            alert("Please input title and input icon");
+            setOpen(false);
+            setTitle("");
+            setIcon("");
+        } else if (!getTitle) {
+            alert("Please input title");
+            setOpen(false);
+            setTitle("");
+            setIcon("");
+        } else if (!getIcon) {
+            alert("Please input icon");
+            setOpen(false);
+            setTitle("");
+            setIcon("");
+        } else {
+            addCategory(addData.title, addData.icon);
+            setOpen(false);
+            setTitle("");
+            setIcon("");
+        }
     };
-
-    const [isOpen, setOpen] = useState(false);
 
     return (
         <div>
