@@ -24,28 +24,21 @@ const CreateExpense = () => {
     const [getIcon, setIcon] = useState<string>("");
     const [getTitle, setTitle] = useState<string>("");
 
+    const category = useFetchCategory();
+
+    const getTag = category.map((i) => i.title);
+    console.log(getTag);
+
     useEffect(() => {
-        if (getIcon === "⛽") {
-            setTitle("Gas");
-        } else if (getIcon === "🏠") {
-            setTitle("Home");
-        } else if (getIcon === "🚗") {
-            setTitle("Car");
-        } else if (getIcon === "📱") {
-            setTitle("Phone");
-        } else if (getIcon === "🏫") {
-            setTitle("School");
-        } else if (getIcon === "🖥️") {
-            setTitle("Computer");
-        } else if (getIcon === "🍔") {
-            setTitle("Food");
+        const selectedCategory = category.find((cat) => cat.icon === getIcon);
+        if (selectedCategory) {
+            setTitle(selectedCategory.title);
         } else {
             setTitle("");
         }
-        console.log("running...");
-    }, [getIcon]);
 
-    const category = useFetchCategory();
+        console.log("running...");
+    }, [getIcon, category]);
 
     // Toast
     const inputValueAndIcon = useCustomToast(
