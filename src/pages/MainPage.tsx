@@ -5,7 +5,8 @@ const MainPage = () => {
     const expense = useFetchExpense();
 
     const totalExpense = expense.reduce(
-        (accumulator, currentItem) => accumulator + currentItem.value,
+        (accumulator, currentItem) =>
+            accumulator + parseInt(currentItem.value, 10),
         0
     );
 
@@ -19,7 +20,7 @@ const MainPage = () => {
             </p>
             <div className="w-full p-5 space-y-5">
                 <div className="w-full flex justify-between items-center text-gray-400 text-lg pb-3">
-                    {/* <p>{convertDate(date)}</p> */}
+                    <p>28 Jun, 2024</p>
                     <p>- {totalExpense}$</p>
                 </div>
                 {expense.map((ex) => (

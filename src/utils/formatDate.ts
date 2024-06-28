@@ -1,10 +1,8 @@
-export const convertDate = (dateString: any) => {
+export const formatDate = (dateString: any) => {
     const date = new Date(dateString);
-    const options: any = { year: "numeric", month: "long", day: "numeric" };
-    return date.toLocaleDateString("en-US", options);
-};
-export const convertShortDate = (dateString: string) => {
-    const date = new Date(dateString);
-    const options: any = { month: "long", day: "numeric" };
-    return date.toLocaleDateString("en-US", options);
+
+    const options = { day: "numeric", month: "long", year: "numeric" };
+    const formattedDate = date.toLocaleDateString("en-GB", options);
+
+    return formattedDate;
 };

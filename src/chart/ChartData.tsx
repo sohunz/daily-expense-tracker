@@ -1,6 +1,5 @@
 import { Bar } from "react-chartjs-2";
-import { useAddExpense } from "@/store/store.ts";
-import { convertShortDate } from "../utils/formatDate.ts";
+import { formatDate } from "../utils/formatDate.ts";
 import {
     Chart as ChartJS,
     CategoryScale,
@@ -10,6 +9,7 @@ import {
     Tooltip,
     Legend,
 } from "chart.js";
+import useFetchExpense from "@/hooks/useFetchExpense.tsx";
 
 ChartJS.register(
     CategoryScale,
@@ -39,15 +39,17 @@ const options: any = {
 };
 
 const ChartData = () => {
-    const { expense } = useAddExpense((state) => state);
+    const expense = useFetchExpense();
+
+    console.log(expense);
 
     const aggregatedData = expense.reduce((acc: any, point) => {
         const date = new Date(point.created).toLocaleDateString("en-US");
-        const convertData = convertShortDate(date);
+        const convertData = formatDate(date);
         if (!acc[convertData]) {
             acc[convertData] = 0;
         }
-        acc[convertData] += point.value;
+        acc[convertData] += Number(point.value);
         return acc;
     }, {});
 
