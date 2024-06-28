@@ -1,10 +1,10 @@
 import { TrendingUp, Tag } from "lucide-react";
-import { useAddExpense } from "@/store/store.ts";
 import { convertDate } from "../utils/formatDate.ts";
 import ChartData from "@/chart/ChartData.tsx";
+import useFetchExpense from "@/hooks/useFetchExpense.tsx";
 
 const Analytic = () => {
-    const { expense } = useAddExpense((state) => state);
+    const expense = useFetchExpense();
 
     // get total expense
     const totalExpense = expense.reduce(

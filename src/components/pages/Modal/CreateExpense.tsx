@@ -14,10 +14,10 @@ import {
 } from "@/components/ui/drawer";
 import { Input } from "../../ui/input";
 import { useEffect, useState } from "react";
-import { useAddExpense } from "@/store/store";
 import CreateExpenseModal from "./CreateExpenseModal";
-import { useAddCategory } from "@/store/category";
 import useCustomToast from "@/hooks/useCustomToast";
+import axios from "axios";
+import useFetchCategory from "@/hooks/useFetchCategory";
 
 const CreateExpense = () => {
     const [getValue, setValue] = useState<number>(0);
@@ -45,8 +45,7 @@ const CreateExpense = () => {
         console.log("running...");
     }, [getIcon]);
 
-    const { addExpense } = useAddExpense((state) => state);
-    const { category } = useAddCategory((state) => state);
+    const category = useFetchCategory();
 
     // Toast
     const inputValueAndIcon = useCustomToast(
@@ -55,6 +54,7 @@ const CreateExpense = () => {
     const inputValue = useCustomToast("Please input amount of Expense!");
     const inputIcon = useCustomToast("Please select Icon!");
     const success = useCustomToast("Expense has been created!");
+    const addData = { title: getTitle, icon: getIcon, value: getValue };
 
     const handleAdd = () => {
         if (!getValue && !getIcon) {
@@ -64,13 +64,14 @@ const CreateExpense = () => {
         } else if (!getIcon) {
             inputIcon();
         } else {
-            addExpense(getValue, getIcon, getTitle);
+            axios.post("http://localhost:8080/api/expenses", addData);
             setIcon("");
             setTitle("");
             setValue(0);
             success();
         }
     };
+
     return (
         <div>
             <Dialog>
@@ -115,7 +116,7 @@ const CreateExpense = () => {
                                                 <CreateExpenseModal />
                                             </div>
                                         </li>
-                                        {category.map((i) => {
+                                        {category.map((i: any) => {
                                             return (
                                                 <li
                                                     className="flex items-center flex-col text-[13px] gap-1"

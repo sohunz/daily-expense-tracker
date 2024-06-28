@@ -9,15 +9,13 @@ import {
 import { DrawerClose } from "@/components/ui/drawer";
 import { Input } from "../../ui/input";
 import { useState } from "react";
-import { useAddCategory } from "@/store/category";
 import useCustomToast from "@/hooks/useCustomToast";
+import axios from "axios";
 
 const CreateExpenseModal = () => {
     const [getIcon, setIcon] = useState<string>("");
     const [getTitle, setTitle] = useState<string>("");
     const [isOpen, setOpen] = useState(false);
-
-    const { addCategory } = useAddCategory((state) => state);
 
     const addData = {
         title: getTitle,
@@ -46,7 +44,7 @@ const CreateExpenseModal = () => {
             setTitle("");
             setIcon("");
         } else {
-            addCategory(addData.title, addData.icon);
+            axios.post("http://localhost:8080/api/category", addData);
             setOpen(false);
             setTitle("");
             setIcon("");
