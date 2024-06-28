@@ -1,7 +1,7 @@
-export const formatTime = (time: any) => {
+export const formatTime = (time: string) => {
     const date = new Date(time);
 
-    const options = {
+    const options: any = {
         hour: "2-digit",
         minute: "2-digit",
         hour12: true,

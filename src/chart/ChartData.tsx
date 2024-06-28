@@ -10,6 +10,7 @@ import {
     Legend,
 } from "chart.js";
 import useFetchExpense from "@/hooks/useFetchExpense.tsx";
+import { expenseType } from "@/types/types.ts";
 
 ChartJS.register(
     CategoryScale,
@@ -39,7 +40,7 @@ const options: any = {
 };
 
 const ChartData = () => {
-    const expense = useFetchExpense();
+    const expense: expenseType[] = useFetchExpense();
 
     console.log(expense);
 

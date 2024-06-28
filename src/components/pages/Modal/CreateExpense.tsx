@@ -18,16 +18,14 @@ import CreateExpenseModal from "./CreateExpenseModal";
 import useCustomToast from "@/hooks/useCustomToast";
 import axios from "axios";
 import useFetchCategory from "@/hooks/useFetchCategory";
+import { categoryType } from "@/types/types";
 
 const CreateExpense = () => {
     const [getValue, setValue] = useState<number>(0);
     const [getIcon, setIcon] = useState<string>("");
     const [getTitle, setTitle] = useState<string>("");
 
-    const category = useFetchCategory();
-
-    const getTag = category.map((i) => i.title);
-    console.log(getTag);
+    const category: categoryType[] = useFetchCategory();
 
     useEffect(() => {
         const selectedCategory = category.find((cat) => cat.icon === getIcon);

@@ -5,7 +5,7 @@ const MainPage = () => {
     const expense = useFetchExpense();
 
     const totalExpense = expense.reduce(
-        (accumulator, currentItem) =>
+        (accumulator, currentItem: any) =>
             accumulator + parseInt(currentItem.value, 10),
         0
     );
@@ -24,7 +24,7 @@ const MainPage = () => {
                     <p>- {totalExpense}$</p>
                 </div>
                 {expense.map((ex) => (
-                    <ListExpense ex={ex} key={ex.id} />
+                    <ListExpense ex={ex} />
                 ))}
             </div>
         </main>

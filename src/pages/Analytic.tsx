@@ -2,13 +2,14 @@ import { TrendingUp, Tag } from "lucide-react";
 import { formatDate } from "../utils/formatDate.ts";
 import ChartData from "@/chart/ChartData.tsx";
 import useFetchExpense from "@/hooks/useFetchExpense.tsx";
+import { expenseType } from "@/types/types.ts";
 
 const Analytic = () => {
-    const expense = useFetchExpense();
+    const expense: expenseType[] = useFetchExpense();
 
     // get total expense
     const totalExpense = expense.reduce(
-        (accumulator, currentItem) =>
+        (accumulator, currentItem: any) =>
             accumulator + parseInt(currentItem.value, 10),
         0
     );
@@ -19,7 +20,6 @@ const Analytic = () => {
         expense[0]
     );
 
-    const date = new Date();
     return (
         <div className=" px-5 mt-10">
             <p className="flex flex-col gap-2 mb-5">
