@@ -45,7 +45,7 @@ const ChartData = () => {
     console.log(expense);
 
     const aggregatedData = expense.reduce((acc: any, point) => {
-        const date = new Date(point.created).toLocaleDateString("en-US");
+        const date = new Date(point.createdAt).toLocaleDateString("en-US");
         const convertData = formatDate(date);
         if (!acc[convertData]) {
             acc[convertData] = 0;

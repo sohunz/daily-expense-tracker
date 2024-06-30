@@ -3,7 +3,7 @@ export interface expenseType {
     title: string;
     icon: string;
     value: number;
-    created: string;
+    createdAt: string;
 }
 
 export interface categoryType {

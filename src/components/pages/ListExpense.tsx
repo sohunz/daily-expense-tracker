@@ -13,7 +13,7 @@ const ListExpense = ({ ex }: PropsType) => {
                 <p className="flex flex-col gap-1">
                     {ex.title}
                     <span className="text-[13px] text-gray-500">
-                        {formatTime(ex.created)}
+                        {formatTime(ex.createdAt)}
                     </span>
                 </p>
             </div>

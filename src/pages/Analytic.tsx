@@ -40,7 +40,7 @@ const Analytic = () => {
                         <p className="flex flex-col gap-1">
                             Highest Spent
                             <span className="text-[13px] ">
-                                {formatDate(highestValueExpense?.created)}
+                                {formatDate(highestValueExpense?.createdAt)}
                             </span>
                         </p>
                     </div>
